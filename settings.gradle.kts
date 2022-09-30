@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Brownfield"
-include ':app'
+include(":app")
