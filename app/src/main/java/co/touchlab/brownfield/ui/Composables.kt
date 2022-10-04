@@ -33,9 +33,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.flowWithLifecycle
 import co.touchlab.brownfield.R
-import co.touchlab.brownfield.viewmodel.Breed
 import co.touchlab.brownfield.viewmodel.BreedViewModel
 import co.touchlab.brownfield.viewmodel.BreedViewState
+import co.touchlab.brownfieldsdk.db.Breed
 import co.touchlab.kermit.Logger
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
