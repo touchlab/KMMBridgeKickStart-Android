@@ -3,6 +3,10 @@ package co.touchlab.brownfield
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.ui.Modifier
 import co.touchlab.brownfield.ui.MainScreen
 import co.touchlab.brownfield.ui.theme.BrownfieldTheme
 import co.touchlab.brownfield.viewmodel.BreedViewModel
@@ -20,7 +24,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BrownfieldTheme {
-                MainScreen(viewModel, log)
+                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+                    MainScreen(viewModel, log)
+                }
             }
         }
     }

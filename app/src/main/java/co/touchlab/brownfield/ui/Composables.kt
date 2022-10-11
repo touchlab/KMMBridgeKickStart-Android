@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -167,12 +168,12 @@ fun FavoriteIcon(breed: Breed) {
         )
     ) { fav ->
         if (fav) {
-            Image(
+            Icon(
                 painter = painterResource(id = R.drawable.ic_favorite_border_24px),
                 contentDescription = stringResource(R.string.favorite_breed, breed.name)
             )
         } else {
-            Image(
+            Icon(
                 painter = painterResource(id = R.drawable.ic_favorite_24px),
                 contentDescription = stringResource(R.string.unfavorite_breed, breed.name)
             )
