@@ -56,6 +56,7 @@ dependencies {
     implementation("io.insert-koin:koin-android:3.2.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+    implementation("co.touchlab:BrownfieldSDK:1.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
