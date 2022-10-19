@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import co.touchlab.brownfieldsdk.db.Breed
 import co.touchlab.brownfieldsdk.repository.BreedRepository
-import co.touchlab.kermit.Logger
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,9 +14,7 @@ import kotlinx.coroutines.launch
 
 class BreedViewModel(
     private val breedRepository: BreedRepository,
-//    log: Logger
 ) : ViewModel() {
-//    private val log = log.withTag("BreedCommonViewModel")
 
     private val mutableBreedState: MutableStateFlow<BreedViewState> =
         MutableStateFlow(BreedViewState(isLoading = true))

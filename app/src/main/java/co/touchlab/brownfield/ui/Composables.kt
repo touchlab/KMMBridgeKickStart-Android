@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.TweenSpec
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,14 +36,12 @@ import co.touchlab.brownfield.R
 import co.touchlab.brownfield.viewmodel.BreedViewModel
 import co.touchlab.brownfield.viewmodel.BreedViewState
 import co.touchlab.brownfieldsdk.db.Breed
-import co.touchlab.kermit.Logger
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
 @Composable
 fun MainScreen(
     viewModel: BreedViewModel,
-    log: Logger,
 ) {
     val lifecycleOwner = LocalLifecycleOwner.current
     val lifecycleAwareDogsFlow = remember(viewModel.breedState, lifecycleOwner) {
@@ -57,8 +54,8 @@ fun MainScreen(
     MainScreenContent(
         dogsState = dogsState,
         onRefresh = { viewModel.refreshBreeds() },
-        onSuccess = { data -> log.v { "View updating with ${data.size} breeds" } },
-        onError = { exception -> log.e { "Displaying error: $exception" } },
+        onSuccess = { data -> println("View updating with ${data.size} breeds") },
+        onError = { exception -> println("Displaying error: $exception") },
         onFavorite = { viewModel.updateBreedFavorite(it) }
     )
 }
