@@ -35,6 +35,7 @@ import androidx.lifecycle.flowWithLifecycle
 import co.touchlab.brownfield.R
 import co.touchlab.brownfield.viewmodel.BreedViewModel
 import co.touchlab.brownfield.viewmodel.BreedViewState
+import co.touchlab.brownfieldsdk.BreedAnalytics
 import co.touchlab.brownfieldsdk.db.Breed
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
@@ -54,9 +55,12 @@ fun MainScreen(
     MainScreenContent(
         dogsState = dogsState,
         onRefresh = { viewModel.refreshBreeds() },
-        onSuccess = { data -> println("View updating with ${data.size} breeds") },
-        onError = { exception -> println("Displaying error: $exception") },
-        onFavorite = { viewModel.updateBreedFavorite(it) }
+        onSuccess = { data -> BreedAnalytics.displayingBreeds(data.size) },
+        onError = { exception -> BreedAnalytics.displayingError(exception) },
+        onFavorite = {
+            viewModel.updateBreedFavorite(it)
+            BreedAnalytics.favoriteClicked(it.id)
+        }
     )
 }
 
