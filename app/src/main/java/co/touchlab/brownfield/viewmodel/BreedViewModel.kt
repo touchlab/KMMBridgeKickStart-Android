@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import co.touchlab.brownfieldsdk.BreedAnalytics
 import co.touchlab.brownfieldsdk.db.Breed
 import co.touchlab.brownfieldsdk.repository.BreedRepository
-import co.touchlab.brownfieldsdk.sendEvent
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,6 +15,7 @@ import kotlinx.coroutines.launch
 
 class BreedViewModel(
     private val breedRepository: BreedRepository,
+    private val breedAnalytics: BreedAnalytics,
 ) : ViewModel() {
 
     private val mutableBreedState: MutableStateFlow<BreedViewState> =
@@ -28,7 +28,7 @@ class BreedViewModel(
     }
 
     override fun onCleared() {
-        sendEvent("clearingBreedViewModel")
+        breedAnalytics.clearingBreedViewModel()
     }
 
     private fun observeBreeds() {
@@ -66,7 +66,7 @@ class BreedViewModel(
         // Set loading state, which will be cleared when the repository re-emits
         mutableBreedState.update { it.copy(isLoading = true) }
         return viewModelScope.launch {
-            BreedAnalytics.refreshingBreeds()
+            breedAnalytics.refreshingBreeds()
             try {
                 breedRepository.refreshBreeds()
             } catch (exception: Exception) {
@@ -82,7 +82,7 @@ class BreedViewModel(
     }
 
     private fun handleBreedError(throwable: Throwable) {
-        BreedAnalytics.updatingBreedsError(throwable)
+        breedAnalytics.updatingBreedsError(throwable)
         mutableBreedState.update {
             if (it.breeds.isNullOrEmpty()) {
                 BreedViewState(error = "Unable to refresh breed list")
