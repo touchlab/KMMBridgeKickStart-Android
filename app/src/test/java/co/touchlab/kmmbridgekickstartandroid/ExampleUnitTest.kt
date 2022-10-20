@@ -1,4 +1,4 @@
-package co.touchlab.brownfield
+package co.touchlab.kmmbridgekickstartandroid
 
 import org.junit.Test
 

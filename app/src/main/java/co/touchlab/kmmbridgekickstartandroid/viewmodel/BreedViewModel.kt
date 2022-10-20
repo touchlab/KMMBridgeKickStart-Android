@@ -1,11 +1,11 @@
-package co.touchlab.brownfield.viewmodel
+package co.touchlab.kmmbridgekickstartandroid.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import co.touchlab.brownfieldsdk.BreedAnalytics
-import co.touchlab.brownfieldsdk.db.Breed
-import co.touchlab.brownfieldsdk.repository.BreedRepository
-import co.touchlab.brownfieldsdk.sendEvent
+import co.touchlab.kmmbridgekickstart.BreedAnalytics
+import co.touchlab.kmmbridgekickstart.db.Breed
+import co.touchlab.kmmbridgekickstart.repository.BreedRepository
+import co.touchlab.kmmbridgekickstart.sendEvent
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

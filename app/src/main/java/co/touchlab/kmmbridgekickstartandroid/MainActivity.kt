@@ -1,4 +1,4 @@
-package co.touchlab.brownfield
+package co.touchlab.kmmbridgekickstartandroid
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,9 +7,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import co.touchlab.brownfield.ui.MainScreen
-import co.touchlab.brownfield.ui.theme.BrownfieldTheme
-import co.touchlab.brownfield.viewmodel.BreedViewModel
+import co.touchlab.kmmbridgekickstartandroid.ui.MainScreen
+import co.touchlab.kmmbridgekickstartandroid.ui.theme.KMMBridgeKickStartAndroidTheme
+import co.touchlab.kmmbridgekickstartandroid.viewmodel.BreedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            BrownfieldTheme {
+            KMMBridgeKickStartAndroidTheme {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
                     MainScreen(viewModel)
                 }

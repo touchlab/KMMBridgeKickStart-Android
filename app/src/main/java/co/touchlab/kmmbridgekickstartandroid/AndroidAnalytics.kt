@@ -1,6 +1,6 @@
-package co.touchlab.brownfield
+package co.touchlab.kmmbridgekickstartandroid
 
-import co.touchlab.brownfieldsdk.Analytics
+import co.touchlab.kmmbridgekickstart.Analytics
 
 class AndroidAnalytics : Analytics {
     override fun sendEvent(eventName: String, eventArgs: Map<String, Any>) {

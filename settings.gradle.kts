@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         mavenLocal()
     }
 }
-rootProject.name = "Brownfield"
+rootProject.name = "KMMBridgeKickStart-Android"
 include(":app")
