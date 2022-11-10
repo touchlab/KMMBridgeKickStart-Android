@@ -1,4 +1,4 @@
-package co.touchlab.brownfield.ui
+package co.touchlab.kmmbridgekickstartandroid.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.animation.Crossfade
@@ -32,11 +32,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.flowWithLifecycle
-import co.touchlab.brownfield.R
-import co.touchlab.brownfield.viewmodel.BreedViewModel
-import co.touchlab.brownfield.viewmodel.BreedViewState
-import co.touchlab.brownfieldsdk.BreedAnalytics
-import co.touchlab.brownfieldsdk.db.Breed
+import co.touchlab.kmmbridgekickstartandroid.R
+import co.touchlab.kmmbridgekickstartandroid.viewmodel.BreedViewModel
+import co.touchlab.kmmbridgekickstartandroid.viewmodel.BreedViewState
+import co.touchlab.kmmbridgekickstart.BreedAnalytics
+import co.touchlab.kmmbridgekickstart.db.Breed
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 

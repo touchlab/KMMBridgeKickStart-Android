@@ -1,4 +1,4 @@
-package co.touchlab.brownfield.ui.theme
+package co.touchlab.kmmbridgekickstartandroid.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
