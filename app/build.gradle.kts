@@ -55,8 +55,8 @@ dependencies {
     implementation("io.insert-koin:koin-android:3.2.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
-    implementation("co.touchlab.kmmbridgekickstart:breeds:0.2")
-    implementation("co.touchlab.kmmbridgekickstart:analytics:0.2")
+    implementation("co.touchlab.kmmbridgekickstart:breeds:0.1")
+    implementation("co.touchlab.kmmbridgekickstart:analytics:0.1")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")

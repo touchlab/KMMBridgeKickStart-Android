@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import co.touchlab.kmmbridgekickstart.BreedAnalytics
 import co.touchlab.kmmbridgekickstart.db.Breed
 import co.touchlab.kmmbridgekickstart.repository.BreedRepository
-import co.touchlab.kmmbridgekickstart.sendEvent
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -28,7 +27,7 @@ class BreedViewModel(
     }
 
     override fun onCleared() {
-        sendEvent("clearingBreedViewModel")
+        BreedAnalytics.clearingBreedViewModel()
     }
 
     private fun observeBreeds() {
