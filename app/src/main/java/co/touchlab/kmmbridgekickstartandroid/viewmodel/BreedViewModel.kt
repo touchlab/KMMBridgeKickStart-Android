@@ -15,6 +15,7 @@ import kotlinx.coroutines.launch
 
 class BreedViewModel(
     private val breedRepository: BreedRepository,
+    val breedAnalytics: BreedAnalytics
 ) : ViewModel() {
 
     private val mutableBreedState: MutableStateFlow<BreedViewState> =
@@ -27,7 +28,7 @@ class BreedViewModel(
     }
 
     override fun onCleared() {
-        BreedAnalytics.clearingBreedViewModel()
+        breedAnalytics.clearingBreedViewModel()
     }
 
     private fun observeBreeds() {
@@ -65,7 +66,7 @@ class BreedViewModel(
         // Set loading state, which will be cleared when the repository re-emits
         mutableBreedState.update { it.copy(isLoading = true) }
         return viewModelScope.launch {
-            BreedAnalytics.refreshingBreeds()
+            breedAnalytics.refreshingBreeds()
             try {
                 breedRepository.refreshBreeds()
             } catch (exception: Exception) {
@@ -81,7 +82,7 @@ class BreedViewModel(
     }
 
     private fun handleBreedError(throwable: Throwable) {
-        BreedAnalytics.updatingBreedsError(throwable)
+        breedAnalytics.updatingBreedsError(throwable)
         mutableBreedState.update {
             if (it.breeds.isNullOrEmpty()) {
                 BreedViewState(error = "Unable to refresh breed list")

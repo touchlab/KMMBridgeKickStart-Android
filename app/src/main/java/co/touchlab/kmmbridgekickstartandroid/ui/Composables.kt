@@ -55,11 +55,11 @@ fun MainScreen(
     MainScreenContent(
         dogsState = dogsState,
         onRefresh = { viewModel.refreshBreeds() },
-        onSuccess = { data -> BreedAnalytics.displayingBreeds(data.size) },
-        onError = { exception -> BreedAnalytics.displayingError(exception) },
+        onSuccess = { data -> viewModel.breedAnalytics.displayingBreeds(data.size) },
+        onError = { exception -> viewModel.breedAnalytics.displayingError(exception) },
         onFavorite = {
             viewModel.updateBreedFavorite(it)
-            BreedAnalytics.favoriteClicked(it.id)
+            viewModel.breedAnalytics.favoriteClicked(it.id)
         }
     )
 }

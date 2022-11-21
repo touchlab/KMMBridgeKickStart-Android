@@ -1,10 +1,7 @@
 package co.touchlab.kmmbridgekickstartandroid
 
 import android.app.Application
-import android.content.Context
-import co.touchlab.kmmbridgekickstart.AppAnalytics
-import co.touchlab.kmmbridgekickstart.breedStartup
-import co.touchlab.kmmbridgekickstart.initAnalytics
+import co.touchlab.kmmbridgekickstart.startSDK
 import co.touchlab.kmmbridgekickstartandroid.viewmodel.BreedViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -15,15 +12,13 @@ class MainApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        initAnalytics(AndroidAnalytics())
-        AppAnalytics.appStarted()
+        val sdkHandle = startSDK(analytics = AndroidAnalytics(), context = this)
+        sdkHandle.appAnalytics.appStarted()
 
         startKoin {
             modules(
                 module {
-                    single<Context> { this@MainApp }
-                    single { breedStartup(context = get()) }
-                    viewModel { BreedViewModel(breedRepository = get()) }
+                    viewModel { BreedViewModel(breedRepository = sdkHandle.breedRepository, breedAnalytics = sdkHandle.breedAnalytics) }
                 }
             )
         }
