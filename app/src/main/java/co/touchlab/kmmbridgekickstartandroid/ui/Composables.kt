@@ -43,6 +43,7 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 @Composable
 fun MainScreen(
     viewModel: BreedViewModel,
+    breedAnalytics: BreedAnalytics
 ) {
     val lifecycleOwner = LocalLifecycleOwner.current
     val lifecycleAwareDogsFlow = remember(viewModel.breedState, lifecycleOwner) {
@@ -55,11 +56,11 @@ fun MainScreen(
     MainScreenContent(
         dogsState = dogsState,
         onRefresh = { viewModel.refreshBreeds() },
-        onSuccess = { data -> viewModel.breedAnalytics.displayingBreeds(data.size) },
-        onError = { exception -> viewModel.breedAnalytics.displayingError(exception) },
+        onSuccess = { data -> breedAnalytics.displayingBreeds(data.size) },
+        onError = { exception -> breedAnalytics.displayingError(exception) },
         onFavorite = {
             viewModel.updateBreedFavorite(it)
-            viewModel.breedAnalytics.favoriteClicked(it.id)
+            breedAnalytics.favoriteClicked(it.id)
         }
     )
 }

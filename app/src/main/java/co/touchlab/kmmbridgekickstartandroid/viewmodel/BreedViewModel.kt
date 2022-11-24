@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 
 class BreedViewModel(
     private val breedRepository: BreedRepository,
-    val breedAnalytics: BreedAnalytics
+    private val breedAnalytics: BreedAnalytics
 ) : ViewModel() {
 
     private val mutableBreedState: MutableStateFlow<BreedViewState> =
