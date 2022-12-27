@@ -10,7 +10,14 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        mavenLocal()
+        maven {
+            name = "KickstartTest"
+            url = uri("https://maven.pkg.github.com/samhill303/TestKickStart")
+            credentials {
+                username = "samhill303"
+                password = {My PAT}
+            }
+        }
     }
 }
 rootProject.name = "KMMBridgeKickStart-Android"
